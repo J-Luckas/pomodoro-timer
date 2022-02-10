@@ -3,11 +3,15 @@ import { TimerContext } from '../../contexts/TimerContext';
 
 export function Display() {
 
-  const { listMins } = useContext(TimerContext);
+  const { currentMin } = useContext(TimerContext);
+
+  const formatTime = (time: number) => {
+    return time < 10 ? `0${time}` : time;
+  }
 
   return (
     <div>
-      <h2>{ listMins[0]?.minutes ? listMins[0].minutes : 0 } : { listMins[0]?.seconds ? listMins[0].seconds : 0 }</h2>
+      <h2>{ currentMin?.minutes ? formatTime(currentMin.minutes) : '00' } : { currentMin?.seconds ? formatTime(currentMin.seconds) : '00' }</h2>
     </div>
   );
 }

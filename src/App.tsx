@@ -5,6 +5,7 @@ import { BoxText } from './components/BoxText/index';
 import { ButPomo } from './components/ButPomo/index';
 import { GlobalStyle } from './styles/global';
 import { TimerProvider } from './contexts/TimerContext';
+import { LeastTimers } from './components/LeastTimers/index';
 
 function App() {  
 
@@ -18,6 +19,7 @@ function App() {
           <BoxText />
           <ButPomo />
         </div>
+        < LeastTimers />
       </div>
     </TimerProvider>
   );

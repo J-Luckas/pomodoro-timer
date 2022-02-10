@@ -4,17 +4,25 @@ import { useContext } from 'react';
 
 export function ButPomo() {
 
-    const { isPaused, setIsPaused } = useContext(TimerContext);
-
-    const handleClick = () => {
-        setIsPaused(!isPaused);
-    }
+    const { isPaused, setIsPaused, handleStartTimer, handleResetTimer } = useContext(TimerContext);
 
     return (
-        <input 
-            type="button" 
-            value="Enviar" 
-            onClick={() => handleClick()}
-        />
+        <>
+            <button
+                className="btn btn-primary"
+                onClick={() => {
+                    if (isPaused) {
+                        handleStartTimer();
+                    } else {
+                        setIsPaused(true);
+                    }
+                }}
+            >
+                {isPaused ? 'Start' : 'Pause'}
+            </button>    
+            {!isPaused ? <button className="btn btn-danger" onClick={() => { handleResetTimer(); }}>Reset</button> : null} 
+        </>
+        
+        
     )
 }
