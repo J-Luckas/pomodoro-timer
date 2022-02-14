@@ -41,6 +41,7 @@ export function TimerProvider({ children }: TimerContextProps) {
         newListMins[0].seconds--;        
       }
     } else {
+      newListMins.shift();
       clearInterval((interv as unknown) as number);
     }
 
