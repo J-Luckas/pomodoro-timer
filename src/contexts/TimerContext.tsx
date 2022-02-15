@@ -30,6 +30,10 @@ export function TimerProvider({ children }: TimerContextProps) {
     const [isPaused, setIsPaused] = useState<boolean>(true);
     const [interv, setInterv] = useState<NodeJS.Timer>();
 
+    const handleSetListMins = (listMins: Time[]) => {
+        setListMins(listMins);
+    };
+
     const handleSetCurrentMin = ( copyTimer: Time ) => {
 
         if (copyTimer.seconds === 0) {
@@ -38,29 +42,21 @@ export function TimerProvider({ children }: TimerContextProps) {
         } else {
             copyTimer.seconds--;
         }
-
         const copyListTimer = [...listMins];
         copyListTimer[0] = copyTimer;
-        
         if( copyListTimer[1] && copyTimer === copyListTimer[1] ) copyListTimer.splice(1, 1);
-
-        setListMins(copyListTimer);
+        handleSetListMins(copyListTimer);
     };
 
     const handleTimerReducer = () => {
-        const newListMins = [...listMins];
-        
-
+        const newListMins = listMins;
         if (newListMins[0].minutes <= 0 && newListMins[0].seconds <= 0){
-            newListMins.shift();
-            
+            newListMins.shift();      
         } 
-
-        if (newListMins[0].minutes === 0 && newListMins[0].seconds === 0) {
+        if ( newListMins.length === 0 ) {
             handleResetTimer();
             return;
         }
-
         handleSetCurrentMin(newListMins[0]);
     };
 
@@ -80,6 +76,7 @@ export function TimerProvider({ children }: TimerContextProps) {
         setListMins([]);
         setTotalMin(0);
         setIsPaused(true);
+        
         clearInterval((interv as unknown) as number);
     };
 

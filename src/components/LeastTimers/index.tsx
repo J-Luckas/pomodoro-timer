@@ -3,7 +3,7 @@ import { TimerContext } from '../../contexts/TimerContext';
 import { FiTrash } from 'react-icons/fi'
 export function LeastTimers(){
 
-    const { listMins, handleRemoveTimer, isPaused } = useContext(TimerContext);
+    const { listMins, handleRemoveTimer, isPaused, totalMin } = useContext(TimerContext);
 
     const validatePause = ( id: number ) => {
 
@@ -16,7 +16,7 @@ export function LeastTimers(){
                     '';
     }
 
-    return (
+    return totalMin !== 0 ? (
         <div>
             <h3>Least Timers</h3>
             <ul>
@@ -28,6 +28,9 @@ export function LeastTimers(){
                     
                 ))}
             </ul>
+        </div>
+    ) : (
+        <div>            
         </div>
     );
 }
