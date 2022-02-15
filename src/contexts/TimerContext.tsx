@@ -29,6 +29,7 @@ export function TimerProvider({ children }: TimerContextProps) {
     const [listMins, setListMins] = useState<Time[]>([]);
     const [isPaused, setIsPaused] = useState<boolean>(true);
     const [interv, setInterv] = useState<NodeJS.Timer>();
+    const [delay, setDelay] = useState<number>(1000);
 
     const handleSetListMins = (listMins: Time[]) => {
         setListMins(listMins);
@@ -68,7 +69,7 @@ export function TimerProvider({ children }: TimerContextProps) {
 
     const handleStartTimer = () => {
         setIsPaused(false);
-        const inter: NodeJS.Timer = setInterval(handleTimerReducer, 10);
+        const inter: NodeJS.Timer = setInterval(handleTimerReducer, delay);
         setInterv(inter);
     };
 
