@@ -30,9 +30,6 @@ export function TimerProvider({ children }: TimerContextProps) {
     const [isPaused, setIsPaused] = useState<boolean>(true);
     const [interv, setInterv] = useState<NodeJS.Timer>();
 
-    console.log(listMins);
-
-
     const handleSetCurrentMin = ( copyTimer: Time ) => {
 
         if (copyTimer.seconds === 0) {
@@ -46,7 +43,7 @@ export function TimerProvider({ children }: TimerContextProps) {
         copyListTimer[0] = copyTimer;
         
         if( copyTimer === copyListTimer[1] ) copyListTimer.splice(1, 1);
-        // console.log(copyListTimer.findIndex(item => item.id === copyTimer.id));
+        
         setListMins(copyListTimer);
     };
 
