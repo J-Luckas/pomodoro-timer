@@ -42,19 +42,19 @@ export function TimerProvider({ children }: TimerContextProps) {
         const copyListTimer = [...listMins];
         copyListTimer[0] = copyTimer;
         
-        if( copyTimer === copyListTimer[1] ) copyListTimer.splice(1, 1);
-        
+        if( copyListTimer[1] && copyTimer === copyListTimer[1] ) copyListTimer.splice(1, 1);
+
         setListMins(copyListTimer);
     };
 
     const handleTimerReducer = () => {
         const newListMins = [...listMins];
         
+
         if (newListMins[0].minutes <= 0 && newListMins[0].seconds <= 0){
             newListMins.shift();
+            
         } 
-
-        
 
         if (newListMins[0].minutes === 0 && newListMins[0].seconds === 0) {
             handleResetTimer();
