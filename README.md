@@ -14,6 +14,6 @@
 #### Com todos os requisitos atendidos:
 - Clonar o repositório
 - yarn start / npm run start
-- A aplicação estará rodando na porta 3000, sendo assim basta acessar: http://localhost:3001
+- A aplicação estará rodando na porta 3000, sendo assim basta acessar: http://localhost:3000
 
 
