@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { Display } from './components/Display/index';
 import { BoxText } from './components/BoxText/index';
