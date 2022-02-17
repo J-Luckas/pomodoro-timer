@@ -5,6 +5,7 @@ interface TimerContextData {
     totalMin: number;
     listMins: Time[];
     isPaused: boolean;
+    restarted: boolean;
     setListMins: (listMins: Time[]) => void;
     setIsPaused: (isPaused: boolean) => void;
     handleSetTotalMin: (totalMin: number) => void;
@@ -30,6 +31,7 @@ export function TimerProvider({ children }: TimerContextProps) {
     const [isPaused, setIsPaused] = useState<boolean>(true);
     const [interv, setInterv] = useState<NodeJS.Timer>();
     const [delay, setDelay] = useState<number>(1000);
+    const [restarted, setRestarted] = useState<boolean>(true);
 
     const handleSetListMins = (listMins: Time[]) => {
         setListMins(listMins);
@@ -69,6 +71,7 @@ export function TimerProvider({ children }: TimerContextProps) {
 
     const handleStartTimer = () => {
         setIsPaused(false);
+        setRestarted(false);
         const inter: NodeJS.Timer = setInterval(handleTimerReducer, delay);
         setInterv(inter);
     };
@@ -77,7 +80,7 @@ export function TimerProvider({ children }: TimerContextProps) {
         setListMins([]);
         setTotalMin(0);
         setIsPaused(true);
-        
+        setRestarted(true);
         clearInterval((interv as unknown) as number);
     };
 
@@ -128,6 +131,7 @@ export function TimerProvider({ children }: TimerContextProps) {
             totalMin,
             listMins,
             isPaused,
+            restarted,
             handleSetTotalMin,
             setListMins,
             setIsPaused,
