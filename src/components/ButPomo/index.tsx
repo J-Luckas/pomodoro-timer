@@ -1,4 +1,3 @@
-import React from 'react';
 import { TimerContext } from '../../contexts/TimerContext';
 import { useContext } from 'react';
 import { ButtonsControl, ContainerButtons } from './styles';
