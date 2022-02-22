@@ -8,7 +8,7 @@ export const ContainerDisplay = styled.div`
 `;
 
 export const TextDisplay = styled.h2<TextDisplayProps>`
-    font-size: 3.5rem;
+    font-size: 5rem;
     font-weight: bolder;
 
     color: ${props => props.color ? props.color : '#000'};
