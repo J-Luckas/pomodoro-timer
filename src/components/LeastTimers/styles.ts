@@ -14,7 +14,7 @@ export const ContainerLeastTimers = styled.div`
 
 export const ListTimers = styled.ul`
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 300px));
+    grid-template-columns: repeat(auto-fit, 300px);
     grid-gap: 20px;
     list-style: none;
     justify-content: center;
