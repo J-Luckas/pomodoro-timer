@@ -1,30 +1,67 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
-    body {
-        margin: 0;
+
+    * {
         padding: 0;
-        font-family: 'Roboto', sans-serif;
-        background-color: #fafafa;
+        margin: 0;
+        box-sizing: border-box;
     }
 
-    .App{
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+    :root {
+        --background: #b4b8c797;
+        --red: #E52E4D;
+        --green: #33CC95;
+        --yellow: #eba417;
+
+        --text-title: #314381;
+        --text-body: #bcbec9;
+
+        --green-input-text: #7cf3c9;
+
+        --shape: #FFFFFF;
+    }  
+
+    html {
+        @media (max-width: 1080px ) {
+            font-size: 93.75%; // 15px
+        
+        }
+
+        @media (max-width: 720px ) {
+            font-size: 87.5%; // 14px
+        }
     }
 
-    input[type="button"]{
-        background-color: #cfba23;
-        border: none;
-        border-radius: 5px;
-        padding: 10px;
-        font-size: 1.2rem;
-        font-weight: bold;
+    /* REM - 1rem = font-size */
+
+    body {
+        font-family: Helvetica, Arial, sans-serif;        
+        background-color: var(--background);
+        -webkit-font-smoothing: antialiased;
+    }
+
+    body, input, textarea, button {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 400;
+    }
+
+    h1, h2, h3, h4, h5, h6, strong {
+        font-weight: 600;
+    }
+
+
+    button {
         cursor: pointer;
-        outline: none;
-        margin: 10px;
+    }
+    
+    [disabled] {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+
+    a {
+        text-decoration: none;
+        color: inherit;
     }
 `;

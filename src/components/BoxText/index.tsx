@@ -1,10 +1,11 @@
 import { useContext } from 'react';
 import { TimerContext } from '../../contexts/TimerContext';
+import { TextFieldContainer } from './styles';
 
 export function BoxText() {
   const { restarted, handleSetTotalMin, totalMin } = useContext(TimerContext);
   return (
-    <input 
+    <TextFieldContainer 
       type="text" 
       name="textoCont" 
       id="textoCont" 
