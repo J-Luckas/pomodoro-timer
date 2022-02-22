@@ -1,5 +1,5 @@
 import { darken } from 'polished';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 export const ContainerLeastTimers = styled.div`
     display: flex;
@@ -22,12 +22,27 @@ export const ListTimers = styled.ul`
     width: 100%;
 `;
 
+const renderCards = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+    margin-top: 5rem;
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    margin-top: 1.5rem;
+  }
+`;
+
 export const NextTimerCard = styled.li`
     margin: 1.5rem 0;
 
     background-color: ${darken(0.3, 'rgba(124, 243, 201, 0.5)')};
     color: var(--shape);
 
+    animation: ${renderCards} .6s linear;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -54,10 +69,6 @@ export const ButtonTrash = styled.button`
     border: none;
 
     color: var(--red);
-
-    &:hover {
-        cursor: pointer;
-    }
 `;
 
 export const PharRemaining = styled.p`
