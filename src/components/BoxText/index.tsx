@@ -7,6 +7,7 @@ export function BoxText() {
   return (
     <TextFieldContainer 
       type="text" 
+      maxLength={8}
       name="textoCont" 
       id="textoCont" 
       value={totalMin}
