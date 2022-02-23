@@ -90,6 +90,9 @@ export function TimerProvider({ children }: TimerContextProps) {
     };
 
     function handleSetTotalMin(tot: number) {
+
+        if ( isNaN( tot ) ) return;
+
         setTotalMin(tot);
         const listTimer = [] as Time[];
         let rest = 0;
